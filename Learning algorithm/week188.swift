@@ -10,9 +10,29 @@ import Foundation
 
 class Week_188: BaseWeek {
     public func topics() {
-        
+        // 1441. 简单
+        buildArray([1, 3], 3)
         // 1442 中等
         print("1442. 中等 \(countTriplets([1, 2, 3, 4, 5, 6]))")
+    }
+    
+    
+    /// 1441. 用栈操作构建数组
+    /// - Parameters:
+    ///   - target: 目标数组
+    ///   - n: 操作数
+    /// - Returns: 操作序列
+    func buildArray(_ target: [Int], _ n: Int) -> [String] {
+        let last = target.last! > n ? n : target.last!
+        var operations = [String]()
+        for i in 1 ... last {
+            operations.append("push")
+            if !target.contains(i) {
+                operations.append("pop")
+            }
+        }
+        print(operations)
+        return operations
     }
     
     
