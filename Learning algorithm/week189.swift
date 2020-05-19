@@ -9,6 +9,10 @@
 import Foundation
 
 class Week_189: BaseWeek {
+    override init() {
+        super.init()
+        arrangeWords("To be or not to be")
+    }
     // 1450
     func busyStudent(_ startTime: [Int], _ endTime: [Int], _ queryTime: Int) -> Int {
         var result = 0
@@ -19,6 +23,14 @@ class Week_189: BaseWeek {
         }
         
         return result
+    }
+    
+    // 1451
+    func arrangeWords(_ text: String) -> String {
+        let array = text.split(separator: " ")
+        print(array)
+        
+        return String("1")
     }
     
 }
