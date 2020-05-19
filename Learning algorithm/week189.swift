@@ -67,4 +67,15 @@ class Week_189: BaseWeek {
         return quickSort(low) + equal + quickSort(high)
     }
     
+    
+    /// 利用swift 高阶函数 但是消耗的时间大概是上面快排的2倍
+    func mySort(_ array: [Substring]) -> [Substring] {
+        var tmp = Array(array)
+        
+        tmp.sort { (w1, w2) -> Bool in
+            return w1.count - w2.count < 0
+        }
+        return tmp
+    }
+    
 }
