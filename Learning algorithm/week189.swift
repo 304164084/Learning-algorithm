@@ -11,7 +11,7 @@ import Foundation
 class Week_189: BaseWeek {
     override init() {
         super.init()
-        arrangeWords("To be or not to be")
+        arrangeWords("Leetcode is cool")
     }
     // 1450
     func busyStudent(_ startTime: [Int], _ endTime: [Int], _ queryTime: Int) -> Int {
@@ -28,9 +28,43 @@ class Week_189: BaseWeek {
     // 1451
     func arrangeWords(_ text: String) -> String {
         let array = text.split(separator: " ")
+        
         print(array)
         
-        return String("1")
+        // 快排 最佳情况O(nlogn)
+        var resultArray = quickSort(array)
+        resultArray[0] = Substring(String(resultArray[0]).capitalized)
+        let result = resultArray.joined(separator: " ")
+        
+        print(result)
+        return result
+    }
+    
+    func quickSort(_ array: [Substring]) -> [Substring] {
+        guard array.count > 1 else {
+            return array
+        }
+        
+        let pivot = array[(array.count - 1) / 2].count
+        var low = [Substring]()
+        var high = [Substring]()
+        var equal = [Substring]()
+        
+        for idx in 0 ..< array.count {
+            let word = Substring(array[idx].lowercased())
+            
+            if word.count < pivot {
+                low.append(word)
+            }
+            else if word.count > pivot {
+                high.append(word)
+            }
+            else {
+                equal.append(word)
+            }
+        }
+        
+        return quickSort(low) + equal + quickSort(high)
     }
     
 }
