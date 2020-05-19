@@ -27,7 +27,7 @@ class Week_189: BaseWeek {
     
     // 1451
     func arrangeWords(_ text: String) -> String {
-        let array = text.split(separator: " ")
+        let array = text.lowercased().split(separator: " ")
         
         print(array)
         
@@ -51,7 +51,7 @@ class Week_189: BaseWeek {
         var equal = [Substring]()
         
         for idx in 0 ..< array.count {
-            let word = Substring(array[idx].lowercased())
+            let word = array[idx]
             
             if word.count < pivot {
                 low.append(word)
