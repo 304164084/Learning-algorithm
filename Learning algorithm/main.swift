@@ -58,3 +58,56 @@ func quickSort(_ array: [Int]) -> [Int] {
 let list = [ 10, 0, 3, 9, 2, 14, 8, 27, 1, 5, 8, -1, 26 ]
 quickSort(list)
 
+func largestNumber(_ nums: [Int]) -> String {
+    let data = sortArray(nums)
+    if data[0] == 0 {
+        return "0"
+    }
+    
+    let dataStr = data.map(String.init)
+    let res = dataStr.joined(separator: "")
+    return res
+}
+
+func sortArray(_ nums: [Int]) -> [Int] {
+    guard nums.count > 1 else {
+        return nums
+    }
+    
+    let pivot = nums[0]
+    var low = [Int]()
+    var equal = [Int]()
+    var high = [Int]()
+    
+    for i in 0 ..< nums.count {
+        let result = maxValue(nums[i], pivot)
+        switch result {
+        case 1:
+            high.append(nums[i])
+        case 2:
+            low.append(nums[i])
+        case 3:
+            equal.append(nums[i])
+        default: break
+        }
+    }
+    
+    return sortArray(high) + equal + sortArray(low)
+}
+
+func maxValue(_ a: Int, _ b: Int) -> Int {
+    let aString = String(a)
+    let bString = String(b)
+    let value1 = aString + bString
+    let value2 = bString + aString
+    
+    if Int(value1)! > Int(value2)! {
+        return 1
+    }
+    else if Int(value1)! < Int(value2)! {
+        return 2
+    }
+    else {
+        return 3
+    }
+}
