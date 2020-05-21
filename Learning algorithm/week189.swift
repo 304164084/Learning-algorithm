@@ -12,6 +12,8 @@ class Week_189: BaseWeek {
     override init() {
         super.init()
         arrangeWords("Leetcode is cool")
+        
+        exchange([1,2,3,4])
     }
     // 1450
     func busyStudent(_ startTime: [Int], _ endTime: [Int], _ queryTime: Int) -> Int {
@@ -76,6 +78,29 @@ class Week_189: BaseWeek {
             return w1.count - w2.count < 0
         }
         return tmp
+    }
+    
+    // 面试题21. 调整数组顺序使奇数位于偶数前面
+    // 使用首位指针进行排序筛选 时间复杂度O(n), 空间复杂度O(1)
+    func exchange(_ nums: [Int]) -> [Int] {
+        var nums = nums
+        var i = 0
+        var j = nums.count - 1
+        
+        while i < j {
+            if nums[i] & 1 == 1 {
+                i = i + 1
+                continue
+            }
+            if nums[j] & 1 == 0 {
+                j = j - 1
+                continue
+            }
+            
+            (nums[i], nums[j]) = (nums[j], nums[i])
+        }
+        
+        return nums
     }
     
 }
