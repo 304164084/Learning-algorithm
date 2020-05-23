@@ -10,6 +10,7 @@
 		D5F5ADA0247111820084FDFE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F5AD9F247111820084FDFE /* main.swift */; };
 		D5F5ADA7247111AA0084FDFE /* week188.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F5ADA6247111AA0084FDFE /* week188.swift */; };
 		D5F5ADA924711BB00084FDFE /* BaseWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F5ADA824711BB00084FDFE /* BaseWeek.swift */; };
+		D882C4AB2478B94A004D9B0C /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D882C4AA2478B94A004D9B0C /* Queue.swift */; };
 		D8DC18CE2473FCFE00A11AFD /* week189.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DC18CD2473FCFE00A11AFD /* week189.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		D5F5AD9F247111820084FDFE /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D5F5ADA6247111AA0084FDFE /* week188.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = week188.swift; sourceTree = "<group>"; };
 		D5F5ADA824711BB00084FDFE /* BaseWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWeek.swift; sourceTree = "<group>"; };
+		D882C4AA2478B94A004D9B0C /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		D8DC18CD2473FCFE00A11AFD /* week189.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = week189.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +69,7 @@
 				D5F5ADA824711BB00084FDFE /* BaseWeek.swift */,
 				D5F5ADA6247111AA0084FDFE /* week188.swift */,
 				D8DC18CD2473FCFE00A11AFD /* week189.swift */,
+				D882C4AA2478B94A004D9B0C /* Queue.swift */,
 			);
 			path = "Learning algorithm";
 			sourceTree = "<group>";
@@ -129,6 +132,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D882C4AB2478B94A004D9B0C /* Queue.swift in Sources */,
 				D5F5ADA0247111820084FDFE /* main.swift in Sources */,
 				D5F5ADA924711BB00084FDFE /* BaseWeek.swift in Sources */,
 				D8DC18CE2473FCFE00A11AFD /* week189.swift in Sources */,
