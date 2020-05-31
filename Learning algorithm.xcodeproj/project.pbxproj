@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D58296702483E9DB00A8A892 /* BinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = D582966F2483E9DB00A8A892 /* BinaryTree.swift */; };
+		D58296722483EC6000A8A892 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58296712483EC6000A8A892 /* test.swift */; };
+		D58296742483EECB00A8A892 /* DataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58296732483EECB00A8A892 /* DataStructure.swift */; };
 		D5F5ADA0247111820084FDFE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F5AD9F247111820084FDFE /* main.swift */; };
 		D5F5ADA7247111AA0084FDFE /* week188.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F5ADA6247111AA0084FDFE /* week188.swift */; };
 		D5F5ADA924711BB00084FDFE /* BaseWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F5ADA824711BB00084FDFE /* BaseWeek.swift */; };
@@ -26,6 +29,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D582966F2483E9DB00A8A892 /* BinaryTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryTree.swift; sourceTree = "<group>"; };
+		D58296712483EC6000A8A892 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		D58296732483EECB00A8A892 /* DataStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructure.swift; sourceTree = "<group>"; };
 		D5F5AD9C247111820084FDFE /* Learning algorithm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Learning algorithm"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5F5AD9F247111820084FDFE /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D5F5ADA6247111AA0084FDFE /* week188.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = week188.swift; sourceTree = "<group>"; };
@@ -64,9 +70,12 @@
 			isa = PBXGroup;
 			children = (
 				D5F5AD9F247111820084FDFE /* main.swift */,
+				D58296712483EC6000A8A892 /* test.swift */,
 				D5F5ADA824711BB00084FDFE /* BaseWeek.swift */,
 				D5F5ADA6247111AA0084FDFE /* week188.swift */,
 				D8DC18CD2473FCFE00A11AFD /* week189.swift */,
+				D582966F2483E9DB00A8A892 /* BinaryTree.swift */,
+				D58296732483EECB00A8A892 /* DataStructure.swift */,
 			);
 			path = "Learning algorithm";
 			sourceTree = "<group>";
@@ -130,7 +139,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5F5ADA0247111820084FDFE /* main.swift in Sources */,
+				D58296722483EC6000A8A892 /* test.swift in Sources */,
+				D58296742483EECB00A8A892 /* DataStructure.swift in Sources */,
 				D5F5ADA924711BB00084FDFE /* BaseWeek.swift in Sources */,
+				D58296702483E9DB00A8A892 /* BinaryTree.swift in Sources */,
 				D8DC18CE2473FCFE00A11AFD /* week189.swift in Sources */,
 				D5F5ADA7247111AA0084FDFE /* week188.swift in Sources */,
 			);
