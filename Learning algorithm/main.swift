@@ -111,3 +111,197 @@ func maxValue(_ a: Int, _ b: Int) -> Int {
         return 3
     }
 }
+
+/// 438. 找所有字⺟异位词
+func findAnagrams(_ s: String, _ p: String) -> [Int] {
+    let start = NSDate().timeIntervalSince1970
+    let sArray = [Character](s)
+    var need = [Character : Int]()
+    var window = [Character: Int]()
+    var result = [Int]()
+    
+    for c in p {
+        if need[c] == nil {
+            need[c] = 1
+        }
+        else {
+            need[c]! += 1
+        }
+    }
+    
+    var left = 0, right = 0, valid = 0
+    while right < s.count {
+        let c = sArray[right]
+        right += 1
+        if need[c] != nil && need[c]! > 0 {
+            if window[c] == nil {
+                window[c] = 1
+            }
+            else {
+                window[c]! += 1
+            }
+            
+            if need[c] == window[c] {
+                valid += 1
+            }
+        }
+        
+        while right - left >= p.count {
+            if valid == need.count {
+                result.append(left)
+            }
+            let d = sArray[left]
+            left += 1
+            
+            if need[d] != nil && need[d]! > 0 {
+                if window[d]! == need[d]! {
+                    valid -= 1
+                }
+                window[d]! -= 1
+            }
+        }
+        
+    }
+    
+    let end = NSDate().timeIntervalSince1970
+    
+    print("耗时: \(end - start)")
+    
+    return result
+}
+
+findAnagrams("asgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxkasgyfqvhoimpbtjleurdncwzxk", "fqvhoimpbtjleurdncwzxk")
+
+
+
+/**
+ 使用swift 提交 测试用例第31个 提示超时~ 但是电脑测试发现只耗时0.6s~0.7s之间...
+ 代码如下
+
+ ```swift
+ func findAnagrams(_ s: String, _ p: String) -> [Int] {
+     let start = NSDate().timeIntervalSince1970
+     let sArray = [Character](s)
+     var need = [Character : Int]()
+     var window = [Character: Int]()
+     var result = [Int]()
+     
+     for c in p {
+         if need[c] == nil {
+             need[c] = 1
+         }
+         else {
+             need[c]! += 1
+         }
+     }
+     
+     var left = 0, right = 0, valid = 0
+     while right < s.count {
+         let c = sArray[right]
+         right += 1
+         if need[c] != nil && need[c]! > 0 {
+             if window[c] == nil {
+                 window[c] = 1
+             }
+             else {
+                 window[c]! += 1
+             }
+             
+             if need[c] == window[c] {
+                 valid += 1
+             }
+         }
+         
+         while right - left >= p.count {
+             if valid == need.count {
+                 result.append(left)
+             }
+             let d = sArray[left]
+             left += 1
+             
+             if need[d] != nil && need[d]! > 0 {
+                 if window[d]! == need[d]! {
+                     valid -= 1
+                 }
+                 window[d]! -= 1
+             }
+         }
+         
+     }
+     
+     let end = NSDate().timeIntervalSince1970
+     
+     print("耗时: \(end - start)")
+     
+     return result
+ }
+
+ ```
+  
+
+ */
+
+/// 567. 字符串的排列
+func checkInclusion(_ s1: String, _ s2: String) -> Bool {
+    var needs = [Character : Int]()
+    var window = [Character : Int]()
+    var left = 0, right = 0, valid = 0
+    
+    let sArray = [Character](s2)
+
+    for c in s1 {
+        if needs[c] == nil {
+            needs[c] = 1
+        }
+        else {
+            needs[c]! += 1
+        }
+    }
+
+    while right < s2.count {
+        let c = sArray[right]
+        right += 1
+
+        if needs[c] != nil && needs[c]! > 0 {
+            if window[c] == nil {
+                window[c] = 1
+            }
+            else {
+                window[c]! += 1
+            }
+
+            if needs[c] == window[c] {
+                valid += 1
+            }
+        }
+
+        while right - left >= s1.count {
+            if valid == needs.count {
+                var isEqual = false
+                for e in needs {
+                    if window[e.key]! == e.value {
+                        isEqual = true
+                        continue
+                    }
+                    isEqual = false
+                }
+                return true
+            }
+
+            let d = sArray[left]
+            left += 1
+            if needs[d] != nil && needs[d]! > 0 {
+                if needs[d]! == window[d]! {
+                    valid -= 1
+                }
+                window[d]! -= 1
+            }
+
+        }
+    }
+
+    return false
+}
+
+checkInclusion("uhlqdzjmsmdzrgcjqdevltghvtjzkcckexesbldwjjarkjaocmwubzwqnuqikydqatbvokaxtbxakmrobpnuavjzctgjogmnbnjpvlmwlzrxutszuvtkrbxejyklaeqprhhcixtmcnmvvhqhuqjffvmjjycgrgkdrlxkabymcuhesisrqmyumkjqxfeydpbbjflkteblsyscmibgiqovrxpvbejmjaztimulmoclmjwbepasijdlwuvirzxxruoawcipmpbrekogzuctkjobzuhwiefvereuyjbxproizfipceidjaybvymiwpeuiqcatokgdeedufeczbkwcqqocfqqueyofkzjlshjhgkhavgltyzxdhkxddhyddgttfddofoqtmlsykffoffxfhgfcugtegtwvxtkkitogwkcgidpmbckbddialbloyswuntspzwqygllsnczknbtluooxqrzbefgpbldjeowditvnyertifubiuyyuoqkqcpvszrutjmuywyxkbwzfdvodkyzrbthoemktxedeuevzgwstdvfsskqusecqgymzzbohavgvtgrhxvvturrqxwtwgghbpnvftrqsnktgczshbdoabtptehehaoisrwzmbtvpzphzwivxauswemkkgqexxedlzwaxhuhbybnwldcpkbxalpcoymlhqqjyzhwrkukgvyuefvjargjkxnuerbywamzpbhottksicixcumvtypaogmtxjshajptmpicjmrwmyazqiihiecvufqoqthdmpflydwwcfqrnschgdrciweyfvxcpyebixanzixahhudrtrxtuhvfdyztapcabpfunjmmvhufsdkicqensiibrfjijvsxjdqzclcaiyoebiatmnmiufbtjnhschoxboojjagijficguwpluyyqosprjahcqdibeckzbxaezbiglakdwrcnmjanilmudvqivxnifrrbgmpyjfwujupzalhrhptaplxvsuoybzlyoyqdjcpgxmapxftbojsqwnaedfefufvvavpnsghylbqdnomkhbrraikxnmvancqdoihhtpksiqspaijzwtohbqtolxjysaiaylskijnkgmrppvyspslvvzeemcaniylpgjuxwtwzonjliuxtlyjjhogytdxeihzfamrqpsrirjrgruyfwlonybchhrejhktxewddffddqfesenfrjcujmvbtzgfigqmwhmbwtofsfuududneljnqagnlgzzwwdzfuxyegpdkbefqbidylgajptpnlyukptxhcpafqiphwgbuforjybejzgnnofztniulgdficdbotmnnjthzqxuxzmgoojklscosjfvkucwiuiifclvqwpxwjcyliwkfstuxdmqtwoaxcmchdewbkhjfonbrcstqnyhtpentvxcdotqbsshurypjzksguektjmtgbonbspsvhsxcrbdzeifogivhrybexhfcuprormirisrafdkcbrnqkrgamfvebykmjeljzrsmuwdlvbojjrarzwalcyxgndcyhfiegglrmmfhxzpwiougyhqnajsfkatzdnwyldbghvzknujzjsdsluoyexhnswlmdyjiimbvdqgukxznrampsasojqhdpjsmkicinaojylnaxjumqwvdsmuvogxdpccjdcebavjcpclkbbpejwnzmyqzbhgxnytmvhjepvkaugeofvziekkwhyjhonveuqotuedyhrskyjlnibwltuhssxvxwzrjvaekqkpaksgnkumffotelesbuwfxuyrrziktkuxzycsxyumafpqlnnwdbowjzzombnwnrcaxmpmywmvhnfcqdbgdznbcxsjfehnhgegctusleqwtojzvabyluilyyunzmslnbqgjrtwibnvyyzzfbjoqhfaokdkdlpsdyigglbvmmvsgnkigvdabwupgpdxtykfrvzoxeefuxyptzecpvhbfnkbbeuaytkwrstcwczqzbgjbobfaxsybvurphknedlepfuuzkpyzfodmkqdffbwyqnxgxnsthfgwbjibpfbnuoritrtgbkyjrcujgpuoweuobawgzllrrtcauxnyvvrqaacgdjhdpfgvuyusfjdawnovfpcalutebuclttnssqwueylqlkmwnujudawnxtyzbtgonyroppwexmubgeegecbpsafywiniyfoxqyrcwogjuslorfzyjoiifwrhggsodbuzqvzdxelquloyolmrushxzfiuzdojdjtogprubpfceekoouzwktmsmfzdcqkyubgasdxatuhbrlnlptmjsafplmlfntrjovrqkugldzvvnelinxvazfkjygnnfchmajqqdynpdkjsmbjysajeqegofqhakrcahngsiswjoitkodyygmumyngnsjuvvbackdkzfbcjzwokyxengdgxsgkrrpsrrhiigxanriytcjktjoouflfcxerivldvgbasowoawajqxnumrbhgiaspakmadtuvirwthbvppsgafteztgckcjttxzqfmxfcfumzcagyzenxcbhkyrkmwevqghfjioopnpcqkjfpceuztzhxsvcdclflkabglwqdfgofrbqbjmunmhivczndkunxapxwwjxieiwsncvtclvhtwtqiguysqkugmiuollhoixwnsmupcplmrxlqprwrdkqurhtncllueskaynopaekidvjgfqepjffmfezklllxmkezjwnnloxlvdulwvarifopnugajspzypdosmomdcpouozmyirppbftzpxipkvklttffcxqqisqfdeeuokphclytdfbtogmmrglfbcbtbhgrjmhyzthidybwqdywrryzunfmvuvjuvkdjcwyqwwoaotsmvicodnngxdwwxlkw",
+"lkrzcpwilhhuukffdtbajghpqrjsypwzkuviqhbxtnzlubuzyveujbnljkttzwmjdrukrzeswttdzjfvqrlfzztguavagwcugmmhxjdqpoagxemkvhfnhgclsejzfsfttiwvjmfqufqoprdbegoqoucaxyylxmwfbmkujckwnnskxvkedowmwvabmdkeeclvjubydnihymgrdzodajprsfaodwqovmgmzrvtsshlbkbthbheumgsknwqbdqohxkkbxjsmicwlujfpilukllevoleztzxpplwcwsngpbhugofynxnbhfkngxjfmovhzsxftjthzytgpnejbnfqbeowjanppgxkqnxxdkpakqvpkbefthbiemgwwifskvysbmbhuoheqrgqpyaziuiwwhhduzorzqggiffxxhdihzxdncvrlvzitiewgwlbgylufpianpekzhwlecdhyrubcttfruxmzfukiirciagaqchvluyjsmzvpahtrtaisuzrqagutlasdgbxvqyqhhxozzyxouxfrvikrfaawneoyyornaxbcizbrhtytwrljwazyklydnsviwfcfgrkawirkhoyhrbpppifbdnknkqdkzmbcfrmqkbsziarbwadssrliujdgwrxjoduyancvsabuqrmgyppjnkxvuthzquaxsbxkdsavvrgyxsklfizfsycyrnhymmbjcxvhlcxqpeatipzxdzfayuqhvudbpwoowcvbwpjgfiigrskssigdnuuhhfxrrcdvtmnsverwpnjefnzirghlxnizusztvjawchiecdgtsawogxdxjaewgiyabjywhhnkfbdrucihhxopxmxrxyslcumfsrurnsybwcebxrcqlmthilndrfwzvvsqirsqmryluwavjjlvdstefpxylinmxgmvlzjoewwpracbkixoapezvdsjoamarnsgzufzdgxteypomrqqkazsxrbvkmviisvanumskxkpzrrvmletqanboionifpdszyleowjagagglnamwmopfindniokvkydsnayaezdmjfkbrfwuxbaoxicnoxfakwjmvfchqtnifuwtswwvvxircuzuhdobdqkzmczenfptpihpzhorjlqpqudijfqwzikwnhczkualaxiuebctizkqtcrxkpemzugpfpbaybsflzsvwnlnysnwsnlrdmtcrdgwurgioobcwjroiqlbsdcvemzaqtffiliwerqdispranlcvdyemmyyogrwbxqqghxoqytjnrzrdioejilthxpzkjbhjztasjvknjoklgwhtegujxvkcykabablssobxsyrkcjjobmkkfbyhwkztpnlgljqzydluiskkegngrzrkebbmufhglaqslieeosbywehrgtkfugaxzdsxnlcfudkdqqgjtvtxifbhjznjibqvvukkpsjttsexpqbpampciqoyxhiaciqdrwlliogcmfcbcxcqzhvvkmjbpmqgaxumaubjebxoanitykumqugkflemefahqvppjirmehsiyzgeguwoycquwyyyilmwmazcrldnivlnroblupdljmeaqzkwyuiufcvlazrthrhzbuucpmsummwhdjeqlzmsderjdekpuxovgucwnnmxcrkkaqnhlobdzdtpkpqtmhihrngnrygazklcpayqkfplqtcjfxejtpownqadaqwitghcykhxagevcsehinojnyfzqgaxulavxrkxunynztsnrdeciqkyuthqgtytatpvagbqnvbknailnesqqmughpeiqqkgfxuhxwqwgfrfgauiuqyyhupwccoosyvvvqbndxcptlncdpircgxyhxujqnaamxoyggyszbtbidggomlxzfyqlwlzrtjheckedypwcmyugvexfpnvagoebfmfrjcxbzaopvwggxhozpljvzdfmdotvczdbzavacgalwgdbjcjtzdxkdgtxzojyeixgaxluddgpqzzmilruccxacqqfgvlhdwmqwmmoacyamjlamcjkrfugbmzfdgdgmywyjexnnhuqixgyorzjzkyarvnkqcfnsohfuhlqdzjmsmdzrgcjqdevltghvtjfkcckeiesbldwjjarkjaocpwubzwqnuqikydqatbvokaxtbxakmrobpnzavjzctgjogmnbnjpvlmwlzrxutszuvtkrbxejyklaeqprhhcixtmonmvvhqhuqjffvmjjycgrgkdrlxkabymcuhesisrqmbumkjqxfeydpbbjflkteblsyscmibgiqovrxmvbejmjaztimulmoclmjwbepasijdlwuvirzbxrucawcipmpxrekogcuctkjabzuhwiefvereeyjbxproizfipckidjaybvymiwpeuiqcatokgdeedufezzbkwcqqocfqquecofkzjlshjhgkhavgltyuxdhkxddhyddgttzddofhbtmlsykfcoffxfhgfcuntegtwvxfkkitogwkpgidtmbckbddialbloyswuvtspzwqygllsnczknbtluooxquzbefgpbldjeowdxtvnyertifubiuyyuoqkqcpvszrutjmuywyxabwzfdvodkyzrbthoemktxedeuevzgwstdvfsskqusecqgymzzbohavgvtgrhxvvturrqxwtwgghbpnvftrqsnktgczshbdoabtptehehaoisrwzmbtvpzphzwhvxauswemkkgqexnedlzwaxhuhbybnwldcpkbxalccoymlhqqjyzhwrkukgvyuefvjargjkxnuerbywamzpbhottksicixcumvtypaogmtxjshajptmpicjmrpmytzqiihiecvufqoqthdmwflydwwcfqrnschgdrciweyfvxcpyebixanzixahhudrtrxtuhvfdyzwapcabpfunjmmvhufsdkncqensiibrfjijvsxjdqzclcaiyoebiatmnmiufbtjnhschoxboojjagijficguwpluyyqosprjahcqdibeckzbxoezbiglakdwrcnmjanilmudvqivxnifrrbgmpyjfwujupzalhrhptiplxvsuoybzlyoyqdjcpgxmapxftbojsqwnaedfefufvvaipnsghylbqdnomkhbrraikxnmvancqdoihitpksiqspaijzwuohbqtolxjysaiayoskijnkgmrppvyspslvvzeemcanvylpgjuxwtwzonjliuxtlyjjhogytdaeiozfamrqpsrirjrgruyfwlonybchhrejhktxewddffddqfesenfrjcujmvbtzgfigqmwhmbwtofsfuududneljnqagnlgzzwwdzfuxyegpdkbeflyidylgajptpnlyukptxhcpafqiphwgbuforjybejzgnnofztniulgdficdbotmnnjthzqxuxzmgoojklscosjtvktcwiuiifcqvqwpxwjcyliwkfstuxdmztwoaxcmchdewbkhjfonbrcstqnyhtpentvxcdotqqsshurypjzksguektjmtgbonbspsvhsxcrbdzeifogivhrybexhfcupronmirisrafdknbrnqkrgamfvebykmjeljzrsmuwdlvbojjrarzwalcyxgndcyhfiegglrmmfhxqpwiougyhqnajsfkatzdnwyldbghvzknujzjsdsluoyexhnswlmdyjiimbvdqgukxznrampsasojqhdpjsmkicinkojylnaxjumqwvdsmuvupxdpcfjdcebavjcpclkbbgejwnzmyqzbhgxnytmvhjepvkaugeofvziekkwhyjhonveoqotuedyhrskyjlcibwltuhssxvxwzrjvaekqkpaksgnkumffotelesbuwfxuyrrziktkuxzycsxyumafpqlnnwdbowjzzombnwnrcaxmpmywmvhnfcqdbgdzgbcxsjfuhnhgegctusleqwtojzvabyluilyyunzmslnbqgjrtwibnvyyzzfbjoqhfaokdkdlpsdyigglbvmmvsgikigvdabwupgpdxtykfrvzoxeefuxyptzecpvhbsnkbbelaytkwrstcwczqzbgjbobfaxsybvurphknedlepfuuzkpyzfodmkqdffbwyqnxgxnsthfgwbjibpfjnuoritrtgbkyjrcujgpuoweuobawgzllrrtcauxnyvvrqaacadjhdpfgvuyusfjdawnovfpcalutebuclttnssqwueylqlkmwnujudawnxtyzbtgonyroppwexmubgeegecbpsafywiniyfoxqyrcwogjuslorfzyboiifwrhggfodbuzqvzdxelquloyolmrushxzfiuzdojdjtogpruxpfceekoouzwktmsmfzdcqkyubgasdxatuhbrlnlptmjsafplmlfntrjovrqkugldzvvrelinxvazfkjygnnfchmajqqdynpdkjsmbjysajeqegofqhakrcahngsiswjoixkodyygmumyngnsjuvvbackdkzfbcjzwoeyxengdgxsgkrrpsrrhiigxanriytyjktjoouflfcxerivldvgbasowoawajqxnumrbhgiaspakmadtuvirwthbvppsgafteztgckcjttxzqfmxfcfumzcagyzexxcbhkyrkmwevqghfjiuopnpcqkjfpceuztzhxsvcdclflkabglwqdfgofrbqbjmunmhivczndkunxapbwwjxieiwsncvpclvhtwtqiguysqkugmiuollhoixwnsmupcplmrxlqprordkqurhtncllueskaynopaekidvjgfqepjffmfezklllxmkezjwnnloxlvdultvarifopnugajspzypnwsmomdcpouozmygrppbftzpxipkvklttffcxqqisqfdeeuokphclytdfbtogmmrglfbcbtbhgrjmhyzthidybwqdywrryzrnfmnuvjuvkdjcwyqwwoaotsmvicodndgxdwwxlkwtbflcnulyjfptodffqvlxjkhvwdoonxanrwjqnbtbvzpsrfrpcrdealcyhjfdqsckbrpyeduwnllelbvrshdeiasmebfhwfiofddqmvnewsapvfgdeqltoreinprmnhrfzvsjkqjgohzpgekjcnzskbwpxkkdsirshozmpnpvsbmccxebhxlilcubgfwmvislgtzovotufddbuynsmcsefqydbeelnhxpbsdiwyfrnyqzmoyzcewelkxtcohyamcauvvwclzxsgtqnhiuilbqidqmpqxtqskrxtsbixruwhadfpfpvmhphlewrblojkcpdbmqiitviohofbjxzdgfkbotxhzxtahhipvbctlbwypkhkcmkvqkerhbpkefhztyosrkknppcfqbohfuogwxecxpxttbaboidbhacrhevtrmukakzkuqlwtugxhzljwtbvluaaskjvnpngsicuznwrpbfzhhidraqwenxvcnbnooqpjyqnidypuokvuyqftbnmpvwsenpcvvmnlonxyooiicqzwasbtoasxsmsddczxvknupxtlwoolyjytzzkmfvlzggwosjahjevbaspveqxqyxuvpprgjifakmostvgqtrrikymrgrameejhvbatmgzuvdeljiipbvgwolhorfxsgramkfpyfvopuxckhvsrhwgdfaauhpmsyqfbsevgwdynhypxhekpfzxxslkbqgclczlxgpvfoxfthrhaqkhqegmxrzsbtmstvcabovuwzsgondounxyrtutjpocrnzwmoctucklqwiyvvnzucemwzwapnmqjmvezkrbeaznhjijfzqyzounzosgcitlyhviyjiedyzxpzbhkojasegsvewoimcoajhiincnlztekigtcudtdytyxnorzmyghxcpuvljtjghqoqfxirmsistcmsiazlohaflkfawegkfowlpowpogggdvsrgfkzjlgtxcslqvkdrcpvexvhnuohjdmuqoyvsbyysvbgmvmldqbmcxnutdbftxtiaiihxudsucgzuipmxpyezvhexadlyabrgtukalafiqeczlbihmpbxyerdzsrisulxdfxsnwtolvlynrotowbvjuckrmywqomlxiwvltgvwkdcovvkzebtumcdpwdbwrnflbkqktnuzjpchwhpxbknfyvqljjqwpfzldyhzlpcuccyllvdaezcrznsbvomriadouenndwyxvclrcjpkoivxmjrwkqrlrijexvxhnpbmwkpvqpbkcqxydrwmpdzykefjjssbtotkvoitduesbfeiqfjijwqofledklqmkgssgieplevysqrluzqpavwliosrouzczdyhxhtjtzoudqptlqectrsphiyevuesqictudybuplshepjkjbtujcpxvobqzzxpgnwwvpenkllotcnlakylegkokkygqojivxhnlrpkwmuhcscoyykexlikaouocjgosenadwktjistlbkbjecepgknoljvvdzruwextgaaruunbiihinvsc")
