@@ -15,6 +15,7 @@
 		D5F5ADA924711BB00084FDFE /* BaseWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F5ADA824711BB00084FDFE /* BaseWeek.swift */; };
 		D882C4AB2478B94A004D9B0C /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D882C4AA2478B94A004D9B0C /* Queue.swift */; };
 		D8DC18CE2473FCFE00A11AFD /* week189.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DC18CD2473FCFE00A11AFD /* week189.swift */; };
+		D8E5D7CA2488D8D300D3255C /* week190.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E5D7C92488D8D300D3255C /* week190.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +40,7 @@
 		D5F5ADA824711BB00084FDFE /* BaseWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWeek.swift; sourceTree = "<group>"; };
 		D882C4AA2478B94A004D9B0C /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		D8DC18CD2473FCFE00A11AFD /* week189.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = week189.swift; sourceTree = "<group>"; };
+		D8E5D7C92488D8D300D3255C /* week190.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = week190.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				D5F5ADA824711BB00084FDFE /* BaseWeek.swift */,
 				D5F5ADA6247111AA0084FDFE /* week188.swift */,
 				D8DC18CD2473FCFE00A11AFD /* week189.swift */,
+				D8E5D7C92488D8D300D3255C /* week190.swift */,
 				D882C4AA2478B94A004D9B0C /* Queue.swift */,
 				D582966F2483E9DB00A8A892 /* BinaryTree.swift */,
 				D58296732483EECB00A8A892 /* DataStructure.swift */,
@@ -146,6 +149,7 @@
 				D58296722483EC6000A8A892 /* test.swift in Sources */,
 				D58296742483EECB00A8A892 /* DataStructure.swift in Sources */,
 				D5F5ADA924711BB00084FDFE /* BaseWeek.swift in Sources */,
+				D8E5D7CA2488D8D300D3255C /* week190.swift in Sources */,
 				D58296702483E9DB00A8A892 /* BinaryTree.swift in Sources */,
 				D8DC18CE2473FCFE00A11AFD /* week189.swift in Sources */,
 				D5F5ADA7247111AA0084FDFE /* week188.swift in Sources */,
