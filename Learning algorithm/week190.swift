@@ -9,6 +9,11 @@
 import Foundation
 
 class Week_190: BaseWeek {
+    override init() {
+        super.init()
+        let maxVowel = maxVowels("zpuerktejfp", 3)
+        print("最大元音字母: \(maxVowel)");
+    }
     /**
      1455. 检查单词是否为句中其他单词的前缀
      遍历
@@ -39,8 +44,31 @@ class Week_190: BaseWeek {
      */
     func maxVowels(_ s: String, _ k: Int) -> Int {
         var result = 0
-        let vowels = ["a", "e", "i", "o", "u"]
+        let vowels: [Character] = ["a", "e", "i", "o", "u"]
+        let sArray = [Character](s)
         
+        var left = 0, right = 0, valid = 0
+        while right < sArray.count {
+            let c = sArray[right]
+            right += 1
+            
+            if vowels.contains(c) {
+                valid += 1
+            }
+            
+            while right - left >= k {
+                let d = sArray[left]
+                left += 1
+                if valid == k {
+                    return k
+                }
+                
+                result = max(result, valid)
+                if vowels.contains(d) {
+                    valid -= 1
+                }
+            }
+        }
         
         return result
     }

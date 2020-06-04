@@ -22,7 +22,7 @@ func callWeekCompetition(_ number: Int) -> () {
     let _ = cls.init()
 }
 
-callWeekCompetition(189)
+callWeekCompetition(190)
 
 
 // MARK: 快速排序O(nlogn)
