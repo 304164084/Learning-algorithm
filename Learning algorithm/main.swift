@@ -60,6 +60,7 @@ quickSort(list)
 
 
 let queue = Queue.init(5)
+let qqq = Queue.init()
 
 let x = ["MyCircularQueue","enQueue","enQueue","enQueue","enQueue","Rear","isFull","deQueue","enQueue","Rear"]
 for i in x {

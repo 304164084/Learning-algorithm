@@ -23,6 +23,10 @@ class Queue {
         self.tail = 0
     }
     
+    convenience init() {
+        self.init(5)
+    }
+    
     /** Insert an element into the circular queue. Return true if the operation is successful. */
     public func enQueue(_ value: Any) -> Bool {
         if containerArray.count <= (capacity - 1) {
