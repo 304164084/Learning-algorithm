@@ -73,6 +73,36 @@ class Week_190: BaseWeek {
         return result
     }
     
+    /**
+     1457. 二叉树中的伪回文路径
+     DFS
+     */
+    private var pseudoPalindromicPathsCount = 0
+    func pseudoPalindromicPaths (_ root: TreeNode?) -> Int {
+        guard let _ = root else {
+            return 0
+        }
+        
+        helper(root, 0)
+        return pseudoPalindromicPathsCount
+    }
     
-
+    func helper(_ node: TreeNode?, _ tmp: Int) {
+        var tmp = tmp
+        tmp = tmp ^ (1 << node!.val)
+        if node?.left == nil && node?.right == nil {
+            if tmp == 0 || tmp & (tmp - 1) == 0 {
+                pseudoPalindromicPathsCount += 1
+            }
+        }
+        
+        if node?.left != nil {
+            helper(node?.left, tmp)
+        }
+        
+        if node?.right != nil {
+            helper(node?.right, tmp)
+        }
+    
+    }
 }
