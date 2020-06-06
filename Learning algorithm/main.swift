@@ -6,6 +6,13 @@
 //  Copyright © 2020 banglin. All rights reserved.
 //
 
+/**
+ 并查集需要抓住的几个点:
+ 1. 找到父节点
+ 2. 两个集合合并(找到两个点的父节点, 如果父节点不相同, 则进行合并操作)
+ 3. 合并时, 需要压缩路径(选择层级深的作为父节点. 若层级相同, 可选任意一点作为父节点, 但是层级深度要+1)
+ */
+
 import Foundation
 
 public let WelcomeBanner:((Int) -> String) = {
